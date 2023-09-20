@@ -1,5 +1,5 @@
 # SocialApp
-This is a community platform app developed using `SwiftUI`. This app allows users to create accounts, log in, log out, delete accounts, post content, like posts, and more. All user data is stored in `Firebase`, enabling real-time interaction and engagement.
+This is a community platform app developed using `SwiftUI`. This app allows users to use features like account management and community interaction. All user data is stored in `Firebase`, enabling real-time interaction and engagement.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
