@@ -28,7 +28,7 @@ struct ReusablePostsView: View {
                         // No Post's found in Firebase
                         Text("No Post's found")
                             .font(.caption)
-                            .foregroundColor(.gray)
+//                            .foregroundColor(.gray)
                             .padding(.top,30)
                     }else{
                         // Displaying Posts

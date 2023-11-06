@@ -40,17 +40,17 @@ struct CreateNewPost: View {
                 }label: {
                     Text("Cancel")
                         .font(.callout)
-                        .foregroundColor(.black)
+//                        .foregroundColor(.black)
                 }
                 .hAlign(.leading)
                 
                 Button(action: createPost){
                     Text("Post")
                         .font(.callout)
-                        .foregroundColor(.white)
+//                        .foregroundColor(.white)
                         .padding(.horizontal,20)
                         .padding(.vertical,6)
-                        .background(.black, in: Capsule())
+//                        .background(.black, in: Capsule())
                 }
                 .disableWithOpacity(postText == "") // 沒內容不能post
                 
@@ -115,7 +115,7 @@ struct CreateNewPost: View {
                     showKeyboard = false
                 }
             }
-            .foregroundColor(.black)
+//            .foregroundColor(.black)
             .padding(.horizontal,15)
             .padding(.vertical,10)
         }

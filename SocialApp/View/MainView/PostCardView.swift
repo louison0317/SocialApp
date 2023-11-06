@@ -66,7 +66,7 @@ struct PostCardView: View {
                     Image(systemName: "ellipsis")
                         .font(.caption)
                         .rotationEffect(.init(degrees: -90))
-                        .foregroundColor(.black)
+                        .tint(Color("iconColor"))
                         .padding(8)
                         .clipShape(Rectangle())
                     
@@ -111,6 +111,7 @@ struct PostCardView: View {
             Button (action: likePost){
                 //該用戶有按過讚的話就填滿，表示有按過
                 Image(systemName: post.likedIDs.contains(userUID) ? "hand.thumbsup.fill" : "hand.thumbsup")
+                    .tint(Color("iconColor"))
             }
             Text("\(post.likedIDs.count)")
                 .font(.caption)
@@ -119,13 +120,13 @@ struct PostCardView: View {
             Button(action: dislikePost){
                 //該用戶有按過讚的話就填滿，表示有按過
                 Image(systemName: post.dislikedIDs.contains(userUID) ? "hand.thumbsdown.fill" : "hand.thumbsdown")
+                    .tint(Color("iconColor"))
             }
             .padding(.leading,25)
             Text("\(post.dislikedIDs.count)")
                 .font(.caption)
                 .foregroundColor(.gray)
         }
-        .foregroundColor(.black)
         .padding(.vertical,8)
     }
     // Liking Post

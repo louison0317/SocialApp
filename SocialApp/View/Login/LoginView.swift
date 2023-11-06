@@ -27,6 +27,8 @@ struct LoginView: View {
     //loading view
     @State var isLoading: Bool = false
     
+    @AppStorage("isDarkMode") var isDarkMode = false
+    
     var body: some View {
         VStack(spacing: 10){
             Text("Let's Sign you in")
@@ -47,13 +49,12 @@ struct LoginView: View {
                 Button("Reset password?", action: resetPassword)
                     .font(.callout)
                     .fontWeight(.medium)
-                    .tint(.black)
                     .hAlign(.trailing)
                 Button(action: loginUser){
                     Text("Sign in")
-                        .foregroundColor(.white)
+                        .foregroundColor(isDarkMode ? .black : .white)
                         .hAlign(.center)
-                        .fillView(.black)
+                        .fillView(isDarkMode ? .white : .black)
                 }.padding(.top,10)
                 
                 
@@ -65,7 +66,6 @@ struct LoginView: View {
                 Button("Register Now"){
                     createAccount.toggle()
                 }
-                .foregroundColor(.black)
                 .fontWeight(.bold)
             }
             .font(.callout)
@@ -75,12 +75,14 @@ struct LoginView: View {
         .padding(15)
         .fullScreenCover(isPresented: $createAccount){
             RegisterView()
-        }
+        }.preferredColorScheme(isDarkMode ? .dark : .light)
         .alert(errorMessage,isPresented: $showError, actions: {})
         .overlay(content: {
             LoadingView(show: $isLoading)
         })
+        
     }
+    
     func loginUser(){
         isLoading = true
         closeKeyboard()

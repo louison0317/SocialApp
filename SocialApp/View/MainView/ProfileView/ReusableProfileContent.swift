@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 struct ReusableProfileContent: View {
     var user: User
     @State private var fetchedPosts: [Post] = [] //該用戶張貼的貼文
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             LazyVStack{
@@ -41,6 +42,7 @@ struct ReusableProfileContent: View {
                                 .lineLimit(1)
                         }
                         
+                        
                     }
                     .hAlign(.leading)
                 }
@@ -58,5 +60,7 @@ struct ReusableProfileContent: View {
             .padding(15)
         }
     }
+    
+    
 }
 

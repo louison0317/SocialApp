@@ -23,12 +23,30 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>SocialApp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>ACD93B08295EC30D00494489</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ACD93B19295EC30E00494489</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ACD93B23295EC30E00494489</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0D66862AF0A2A000A3ECE5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AC0D66852AF0A2A000A3ECE5 /* Localizable.xcstrings */; };
+		AC0D66882AF0DD4A00A3ECE5 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D66872AF0DD4A00A3ECE5 /* Language.swift */; };
+		AC0D66C72AF7C12200A3ECE5 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D66C62AF7C12200A3ECE5 /* SettingView.swift */; };
 		AC38F5A329CC5BE600C5D09A /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F5A229CC5BE600C5D09A /* PostsView.swift */; };
 		AC38F5A529CEA25900C5D09A /* ReusablePostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F5A429CEA25900C5D09A /* ReusablePostsView.swift */; };
 		AC38F5A729CEB16B00C5D09A /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F5A629CEB16B00C5D09A /* PostCardView.swift */; };
@@ -54,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC0D66852AF0A2A000A3ECE5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		AC0D66872AF0DD4A00A3ECE5 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		AC0D66C62AF7C12200A3ECE5 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		AC38F5A229CC5BE600C5D09A /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 		AC38F5A429CEA25900C5D09A /* ReusablePostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePostsView.swift; sourceTree = "<group>"; };
 		AC38F5A629CEB16B00C5D09A /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 			children = (
 				AC56B38A297134FB0024BB2A /* ProfileView.swift */,
 				AC56B3C329815D620024BB2A /* ReusableProfileContent.swift */,
+				AC0D66C62AF7C12200A3ECE5 /* SettingView.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -164,6 +171,7 @@
 		ACD93B00295EC30D00494489 = {
 			isa = PBXGroup;
 			children = (
+				AC0D66852AF0A2A000A3ECE5 /* Localizable.xcstrings */,
 				AC56B37C296C77010024BB2A /* GoogleService-Info.plist */,
 				ACD93B0B295EC30D00494489 /* SocialApp */,
 				ACD93B1D295EC30E00494489 /* SocialAppTests */,
@@ -237,6 +245,7 @@
 			children = (
 				AC56B37A296C4DB20024BB2A /* User.swift */,
 				AC56B3CA298919E50024BB2A /* Post.swift */,
+				AC0D66872AF0DD4A00A3ECE5 /* Language.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,6 +350,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = ACD93B00295EC30D00494489;
 			packageReferences = (
@@ -365,6 +375,7 @@
 			files = (
 				ACD93B15295EC30E00494489 /* Preview Assets.xcassets in Resources */,
 				ACD93B11295EC30E00494489 /* Assets.xcassets in Resources */,
+				AC0D66862AF0A2A000A3ECE5 /* Localizable.xcstrings in Resources */,
 				AC56B37D296C77010024BB2A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,11 +404,13 @@
 				AC56B37F296D26DC0024BB2A /* LoadingView.swift in Sources */,
 				AC56B38B297134FB0024BB2A /* ProfileView.swift in Sources */,
 				AC56B3C429815D620024BB2A /* ReusableProfileContent.swift in Sources */,
+				AC0D66C72AF7C12200A3ECE5 /* SettingView.swift in Sources */,
 				AC56B3CB298919E50024BB2A /* Post.swift in Sources */,
 				AC56B389297123680024BB2A /* MainView.swift in Sources */,
 				AC56B37B296C4DB20024BB2A /* User.swift in Sources */,
 				ACD93B402962E7CD00494489 /* LoginView.swift in Sources */,
 				AC38F5A529CEA25900C5D09A /* ReusablePostsView.swift in Sources */,
+				AC0D66882AF0DD4A00A3ECE5 /* Language.swift in Sources */,
 				AC56B38729711E470024BB2A /* View+Extensions.swift in Sources */,
 				AC56B3C9298917C20024BB2A /* CreateNewPost.swift in Sources */,
 				AC38F5A329CC5BE600C5D09A /* PostsView.swift in Sources */,

@@ -1,8 +1,8 @@
 //
-//  ProfileView.swift
+//  SettingView.swift
 //  SocialApp
 //
-//  Created by Louison Lu on 2023/1/13.
+//  Created by Louison Lu on 2023/11/5.
 //
 
 import SwiftUI
@@ -10,65 +10,51 @@ import Firebase
 import FirebaseStorage
 import FirebaseFirestore
 
-struct ProfileView: View {
-    // My Profile Data
-    @State private var myProfile: User?
+struct SettingView: View {
+    @AppStorage("selectedLanguage") var selectedLanguage: Language = .english_us
+    @AppStorage("isDarkMode") var isDarkMode = false
     @AppStorage("log_status") var logStatus: Bool = false
+    // View Properties
+    @State var isLoading: Bool = false
     // Error Message
     @State var showError: Bool = false
     @State var errorMessage: String = ""
-    // View Properties
-    @State var isLoading: Bool = false
     
     var body: some View {
-        NavigationStack{
-            VStack{
-                if let myProfile{
-                    ReusableProfileContent(user: myProfile)
-                        .refreshable {
-                            // Refresh User Data
-                            self.myProfile = nil
-                            await fetchUserData()
-                        }
-                }else{
-                    ProgressView() //進度條
+        Form {
+            Section(header: Text("Language")) {
+                Picker("Select Language", selection: $selectedLanguage) {
+                    Text("English").tag(Language.english_us)
+                    Text("中文").tag(Language.chinese)
                 }
+                .pickerStyle(SegmentedPickerStyle())
             }
-            .navigationTitle("My Profile")
-            .toolbar{
-                ToolbarItem(placement: .navigationBarTrailing){
-                    NavigationLink(destination: SettingView()) {
-                        Image(systemName: "gear")
-                            .tint(Color("iconColor"))
+            
+            Section(header: Text("Appearance")) {
+                Toggle(isOn: $isDarkMode) {
+                    HStack {
+                        Text(isDarkMode ? "Dark Mode" : "Light Mode")
+                        Image(systemName: isDarkMode ? "moon.fill" : "sun.max.fill")
+                            .foregroundColor(isDarkMode ? .white : .yellow)
                     }
                 }
             }
+            
+            Section {
+                Button("Logout", action: logOutUser)
+                    .foregroundColor(.red)
+                Button("Delete Account", action: deleteAccount)
+                    .foregroundColor(.red)
+            }
         }
+        .navigationTitle("Settings")
         .overlay{
             LoadingView(show: $isLoading)
         }
         .alert(errorMessage, isPresented: $showError){
         }
-        .task {
-            // This Modifer is like onAppear
-            // So Fetching for first time only
-            if myProfile != nil{return}
-            // Fetch User Data
-            await fetchUserData()
-        }
-        
     }
     
-    
-    //Fetching user data
-    func fetchUserData() async {
-        guard let userUID = Auth.auth().currentUser?.uid else { return }
-        guard let user = try? await Firestore.firestore().collection("Users").document(userUID).getDocument(as: User.self) else{return}
-        await MainActor.run(body: {
-            myProfile = user
-        })
-        
-    }
     //Logout
     func logOutUser() {
         try? Auth.auth().signOut()
@@ -94,7 +80,7 @@ struct ProfileView: View {
             
         }
     }
-    //Setting Error
+    
     func setErrror(_ error:Error)async{
         //UI Must be Updated on Main thread
         await MainActor.run(body: {
@@ -103,12 +89,9 @@ struct ProfileView: View {
             showError.toggle() //出錯就顯示錯誤原因
         })
     }
-    
-
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
+
+#Preview {
+    SettingView()
 }

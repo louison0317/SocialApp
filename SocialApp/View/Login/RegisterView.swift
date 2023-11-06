@@ -36,6 +36,8 @@ struct RegisterView: View{
     //loading view
     @State var isLoading: Bool = false
     
+    @AppStorage("isDarkMode") var isDarkMode = false
+    
     var body: some View{
         VStack(spacing: 10){
             Text("Let's Register\nAccount")
@@ -44,7 +46,7 @@ struct RegisterView: View{
             Text("Hello user, have a wonderful journey")
                 .font(.title3)
                 .hAlign(.leading)
-            //為了更小的螢幕
+            //為了更小的螢幕（輸入區）
             ViewThatFits{
                 ScrollView(.vertical, showsIndicators: false){
                     HelperView()
@@ -58,7 +60,6 @@ struct RegisterView: View{
                 Button("Login Now"){
                     dismiss()
                 }
-                .foregroundColor(.black)
                 .fontWeight(.bold)
             }
             .font(.callout)
@@ -133,9 +134,9 @@ struct RegisterView: View{
             
             Button(action: registerUser){
                 Text("Sign up")
-                    .foregroundColor(.white)
+                    .foregroundColor(isDarkMode ? .black : .white)
                     .hAlign(.center)
-                    .fillView(.black)
+                    .fillView(isDarkMode ? .white : .black)
             }
             .disableWithOpacity(userName == "" || userBio == "" || emailID == "" || password == "" || userProfilePicData == nil )
             .padding(.top,10)
@@ -143,6 +144,8 @@ struct RegisterView: View{
             
         }
     }
+    
+    //註冊
     func registerUser() {
         isLoading = true
         closeKeyboard()

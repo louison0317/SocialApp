@@ -10,6 +10,8 @@ import SwiftUI
 struct PostsView: View {
     @State private var recentPosts: [Post] = []
     @State private var createNewPost: Bool = false
+    // dark mode
+    @AppStorage("isDarkMode") var isDarkMode = false
     var body: some View {
         NavigationStack{
             ReusablePostsView(posts: $recentPosts)
@@ -22,9 +24,9 @@ struct PostsView: View {
                         Image(systemName: "plus")
                             .font(.title3)
                             .fontWeight(.semibold)
-                            .foregroundColor(.white)
+                            .foregroundColor(isDarkMode ? .black : .white)
                             .padding(13)
-                            .background(.black, in: Circle())
+                            .background(isDarkMode ? .white : .black, in: Circle())
                     }
                     .padding(15)
                 }
@@ -35,7 +37,7 @@ struct PostsView: View {
                             SearchUserView()
                         }label: {
                             Image(systemName:"magnifyingglass")
-                                .tint(.black)
+//                                .tint(.black)
                                 .scaleEffect(0.9)
                         }
                     }
@@ -50,6 +52,8 @@ struct PostsView: View {
                 
             }
         }
+        //sheet or Cover要加這段，不會自動變
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 
